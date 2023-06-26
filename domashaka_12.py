@@ -146,7 +146,8 @@ class AddressBook(UserDict):
         while index < total_records:
             yield [all_records[key] for key in record_keys[index:index + N]]
             index += N
-
+            
+    '''Додано функціонал збереження адресної книги на диск та відновлення з диска'''
     def save_to_file(self, filename):
         with open(filename, 'w') as file:
             json.dump(self.data, file, indent=4)
@@ -183,7 +184,7 @@ def show_func(address_book):
     else:
         return 'No records found'
 
-
+'''Додано можливість пошуку за вмістом книги контактів за збігами в імені/телефоні'''
 def search_func(address_book, coincidence):
     results = []
 
